@@ -1,0 +1,20 @@
+Options -Indexes
+DirectoryIndex index.php
+
+# Protect sensitive folders
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+</IfModule>
+
+# Deny direct access to database SQL files
+<FilesMatch "\.sql$">
+  Require all denied
+</FilesMatch>
+
+# Prevent access to includes' raw PHP being listed (not needed for execution, just directory browsing)
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+php_flag display_errors off
