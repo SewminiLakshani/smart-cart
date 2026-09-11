@@ -1,0 +1,36 @@
+Options -Indexes
+DirectoryIndex index.php
+
+# Protect sensitive folders
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+</IfModule>
+
+# Deny direct access to database SQL files
+<FilesMatch "\.sql$">
+  Require all denied
+</FilesMatch>
+
+# Prevent access to includes' raw PHP being listed (not needed for execution, just directory browsing)
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+php_flag display_errors off
+
+# Raise upload limits for product image uploads (XAMPP's mod_php default is often only 2MB).
+# If this causes a 500 error on your setup (e.g. PHP running as PHP-FPM instead of an Apache module),
+# remove this block and instead raise upload_max_filesize / post_max_size in your php.ini directly.
+<IfModule mod_php.c>
+  php_value upload_max_filesize 8M
+  php_value post_max_size 10M
+</IfModule>
+<IfModule mod_php7.c>
+  php_value upload_max_filesize 8M
+  php_value post_max_size 10M
+</IfModule>
+<IfModule mod_php8.c>
+  php_value upload_max_filesize 8M
+  php_value post_max_size 10M
+</IfModule>
