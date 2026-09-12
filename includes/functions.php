@@ -552,3 +552,18 @@ function stock_status_badge(string $status): string
     [$class, $label] = $map[$status] ?? ['secondary', ucfirst($status)];
     return '<span class="badge sc-badge bg-' . $class . '">' . $label . '</span>';
 }
+
+
+/** Resolve a category's display image: uses a real uploaded photo if one exists
+ *  (assets/images/categories/<slug>.jpg|jpeg|png|webp), otherwise falls back to
+ *  the bundled placeholder SVG so the page never shows a broken image. */
+function category_image_path(string $slug): string
+{
+    $dir = __DIR__ . '/../assets/images/categories/';
+    foreach (['jpg', 'jpeg', 'png', 'webp'] as $ext) {
+        if (file_exists($dir . $slug . '.' . $ext)) {
+            return 'assets/images/categories/' . $slug . '.' . $ext;
+        }
+    }
+    return 'assets/images/categories/' . $slug . '.svg';
+}
