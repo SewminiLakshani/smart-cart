@@ -50,11 +50,6 @@ if ($user) {
     $recommended = $pdo->query("SELECT $productCols $productJoins WHERE p.status='active' ORDER BY p.avg_rating DESC LIMIT 8")->fetchAll();
 }
 
-$categoryImages = [
-    'electronics' => 'electronics.svg', 'fashion' => 'fashion.svg', 'beauty' => 'beauty.svg',
-    'home-living' => 'home-living.svg', 'sports' => 'sports.svg', 'accessories' => 'accessories.svg',
-];
-
 $pageTitle = 'Home';
 require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/navbar.php';
@@ -98,7 +93,7 @@ require __DIR__ . '/includes/navbar.php';
       <?php foreach ($categories as $cat): ?>
         <div class="col-6 col-md-4">
           <a href="<?= BASE_URL ?>products/shop.php?category=<?= e($cat['slug']) ?>" class="sc-category-card d-block text-white text-decoration-none">
-            <img src="<?= BASE_URL ?>assets/images/categories/<?= e($categoryImages[$cat['slug']] ?? 'electronics.svg') ?>" alt="<?= e($cat['category_name']) ?>">
+            <img src="<?= BASE_URL . e(category_image_path($cat['slug'])) ?>" alt="<?= e($cat['category_name']) ?>">
             <div>
               <small>Shop the edit</small>
               <h5><?= e($cat['category_name']) ?></h5>
