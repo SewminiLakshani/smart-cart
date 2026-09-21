@@ -475,22 +475,71 @@ thead.sc-thead th { color: var(--sc-gray); text-transform: uppercase; font-size:
 /* ============ CHECKOUT STEPS ============ */
 .sc-checkout-steps { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
 .sc-checkout-steps .cstep {
-  display: flex; align-items: center; gap: 8px; padding: 8px 18px; border-radius: 30px; background: var(--sc-charcoal-2);
-  border: 1px solid var(--sc-border); color: var(--sc-gray-dim); font-size: 13px;
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  padding: 8px 18px; 
+  border-radius: 30px; 
+  background: var(--sc-charcoal-2);
+  border: 1px solid var(--sc-border); 
+  color: var(--sc-gray-dim); 
+  font-size: 13px;
 }
-.sc-checkout-steps .cstep.active { border-color: var(--sc-gold); color: var(--sc-gold); }
-.sc-checkout-steps .cstep .n { width: 22px; height: 22px; border-radius: 50%; background: var(--sc-charcoal-3); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; }
-.sc-checkout-steps .cstep.active .n { background: var(--sc-gold); color: #14140f; }
+.sc-checkout-steps .cstep.active { 
+  border-color: var(--sc-gold); 
+  color: var(--sc-gold); 
+}
+.sc-checkout-steps .cstep .n { 
+  width: 22px; 
+  height: 22px; 
+  border-radius: 50%; 
+  background: var(--sc-charcoal-3); 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 11px; 
+}
+.sc-checkout-steps .cstep.active .n { 
+  background: var(--sc-gold); 
+  color: #14140f; 
+}
 
 /* ============ AUTH PAGES ============ */
-.sc-auth-wrap { min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: 60px 16px; }
-.sc-auth-card { max-width: 460px; width: 100%; background: var(--sc-charcoal-2); border: 1px solid var(--sc-border); border-radius: var(--sc-radius); padding: 42px; }
+.sc-auth-wrap { 
+  min-height: 90vh; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 60px 16px; 
+}
+.sc-auth-card { 
+  max-width: 460px; 
+  width: 100%; 
+  background: var(--sc-charcoal-2); 
+  border: 1px solid var(--sc-border); 
+  border-radius: var(--sc-radius); 
+  padding: 42px; 
+}
 
 /* ============ MISC UTILITIES ============ */
-.text-gold { color: var(--sc-gold) !important; }
-.bg-sc-charcoal { background: var(--sc-charcoal) !important; }
-.sc-divider { height: 1px; background: var(--sc-border); margin: 30px 0; }
-.sc-quantity { display: inline-flex; align-items: center; border: 1px solid var(--sc-border); border-radius: 40px; overflow: hidden; }
+.text-gold { 
+  color: var(--sc-gold) !important; 
+}
+.bg-sc-charcoal { 
+  background: var(--sc-charcoal) !important; 
+}
+.sc-divider { 
+  height: 1px; 
+  background: var(--sc-border); 
+  margin: 30px 0; 
+}
+.sc-quantity { 
+  display: inline-flex; 
+  align-items: center; 
+  border: 1px solid var(--sc-border); 
+  border-radius: 40px; 
+  overflow: hidden; 
+}
 .sc-quantity button { 
   width: 34px; 
   height: 34px; 
