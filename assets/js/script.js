@@ -1,6 +1,3 @@
-/* =====================================================================
-   SMARTCART — Global JavaScript
-   ===================================================================== */
 (function () {
   'use strict';
 
@@ -64,9 +61,6 @@
     setTimeout(() => { window.location.href = link.href; }, 200);
   });
 
-  // Fade out on form submissions too (login, checkout, etc.) — but only if nothing cancelled the submit
-  // (e.g. client-side validation failing). Capture phase + deferred check so this works correctly even
-  // when a form's own handler calls stopPropagation() (like our .needs-validation forms do).
   document.addEventListener('submit', function (e) {
     if (e.target.target === '_blank') return;
     setTimeout(function () {
