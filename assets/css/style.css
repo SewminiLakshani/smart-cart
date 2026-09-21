@@ -491,19 +491,70 @@ thead.sc-thead th { color: var(--sc-gray); text-transform: uppercase; font-size:
 .bg-sc-charcoal { background: var(--sc-charcoal) !important; }
 .sc-divider { height: 1px; background: var(--sc-border); margin: 30px 0; }
 .sc-quantity { display: inline-flex; align-items: center; border: 1px solid var(--sc-border); border-radius: 40px; overflow: hidden; }
-.sc-quantity button { width: 34px; height: 34px; background: var(--sc-charcoal-3); border: none; color: var(--sc-white); }
-.sc-quantity input { width: 46px; text-align: center; background: transparent; border: none; color: var(--sc-white); }
-.sc-quantity input:focus { outline: none; }
-.spinner-sc { width: 22px; height: 22px; border: 3px solid var(--sc-border); border-top-color: var(--sc-gold); border-radius: 50%; animation: scSpin .7s linear infinite; }
-@keyframes scSpin { to { transform: rotate(360deg); } }
+.sc-quantity button { 
+  width: 34px; 
+  height: 34px; 
+  background: var(--sc-charcoal-3); 
+  border: none; 
+  color: var(--sc-white); 
+}
+.sc-quantity input { 
+  width: 46px; 
+  text-align: center; 
+  background: transparent; 
+  border: none; 
+  color: var(--sc-white); 
+}
+.sc-quantity input:focus { 
+  outline: none; 
+}
+.spinner-sc { 
+  width: 22px; 
+  height: 22px; 
+  border: 3px solid var(--sc-border); 
+  border-top-color: var(--sc-gold); 
+  border-radius: 50%; 
+  animation: scSpin .7s linear infinite; 
+}
+@keyframes scSpin { 
+  to { 
+    transform: rotate(360deg); 
+  } 
+}
 
-.sc-toast-container { position: fixed; top: 90px; right: 20px; z-index: 2000; }
+.sc-toast-container { 
+  position: fixed; 
+  top: 90px; 
+  right: 20px; 
+  z-index: 2000; 
+}
 
 @media (max-width: 991px) {
-  .sc-sidebar, .sc-sidebar.with-navbar { position: fixed; left: -280px; top: 0; bottom: 0; height: auto; z-index: 1050; transition: var(--sc-transition); }
-  .sc-sidebar.show { left: 0; }
-  .sc-content { padding: 20px; }
-  .sc-hero { min-height: auto; padding: 60px 0; text-align: center; }
-  .sc-hero p.lead { margin-left: auto; margin-right: auto; }
-  .sc-hero-stats { justify-content: center; }
+  .sc-sidebar, .sc-sidebar.with-navbar { 
+    position: fixed; 
+    left: -280px; 
+    top: 0; 
+    bottom: 0; 
+    height: auto; 
+    z-index: 1050; 
+    transition: var(--sc-transition); 
+  }
+  .sc-sidebar.show { 
+    left: 0; 
+  }
+  .sc-content { 
+    padding: 20px; 
+  }
+  .sc-hero { 
+    min-height: auto; 
+    padding: 60px 0; 
+    text-align: center; 
+  }
+  .sc-hero p.lead { 
+    margin-left: auto; 
+    margin-right: auto;
+  }
+  .sc-hero-stats { 
+    justify-content: center;
+  }
 }
