@@ -461,19 +461,54 @@ thead.sc-thead th { color: var(--sc-gray); text-transform: uppercase; font-size:
 /* ============ ORDER TRACKING TIMELINE ============ */
 .sc-timeline { display: flex; justify-content: space-between; position: relative; margin: 40px 0; }
 .sc-timeline::before { content: ''; position: absolute; top: 18px; left: 5%; right: 5%; height: 2px; background: var(--sc-border); z-index: 0; }
-.sc-timeline .step { position: relative; z-index: 1; text-align: center; flex: 1; }
+.sc-timeline .step { 
+  position: relative; 
+  z-index: 1; 
+  text-align: center; 
+  flex: 1; }
 .sc-timeline .step .dot {
-  width: 38px; height: 38px; border-radius: 50%; background: var(--sc-charcoal-3); border: 2px solid var(--sc-border);
-  display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; color: var(--sc-gray-dim); transition: var(--sc-transition);
+  width: 38px; 
+  height: 38px; 
+  border-radius: 50%; 
+  background: var(--sc-charcoal-3); 
+  border: 2px solid var(--sc-border);
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin: 0 auto 10px; 
+  color: var(--sc-gray-dim); 
+  transition: var(--sc-transition);
 }
-.sc-timeline .step.done .dot { background: var(--sc-gold); border-color: var(--sc-gold); color: #14140f; }
-.sc-timeline .step.done ~ .step::before { background: var(--sc-border); }
-.sc-timeline .step span { font-size: 12.5px; color: var(--sc-gray); }
-.sc-timeline .step.done span { color: var(--sc-white); font-weight: 600; }
-.sc-timeline .step.cancelled .dot { background: var(--sc-danger); border-color: var(--sc-danger); color: #fff; }
+.sc-timeline .step.done .dot { 
+  background: var(--sc-gold); 
+  border-color: var(--sc-gold); 
+  color: #14140f; 
+}
+.sc-timeline .step.done ~ .step::before { 
+  background: var(--sc-border); 
+}
+.sc-timeline .step span { 
+  font-size: 12.5px; 
+  color: var(--sc-gray); 
+}
+.sc-timeline .step.done span { 
+  color: var(--sc-white); 
+  font-weight: 600; 
+}
+.sc-timeline .step.cancelled .dot { 
+  background: var(--sc-danger); 
+  border-color: var(--sc-danger); 
+  color: #fff; 
+}
 
 /* ============ CHECKOUT STEPS ============ */
-.sc-checkout-steps { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+.sc-checkout-steps { 
+  display: flex; 
+  justify-content: center; 
+  gap: 10px; 
+  margin-bottom: 40px; 
+  flex-wrap: wrap; 
+}
 .sc-checkout-steps .cstep {
   display: flex; 
   align-items: center; 
