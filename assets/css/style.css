@@ -427,7 +427,11 @@ thead.sc-thead th { color: var(--sc-gray); text-transform: uppercase; font-size:
 .progress-bar { background: var(--sc-gold); }
 
 /* ============ DASHBOARD LAYOUT (customer/admin/staff) ============ */
-.sc-dash-wrap { display: flex; align-items: flex-start; min-height: calc(100vh - 76px); }
+.sc-dash-wrap { 
+  display: flex; 
+  align-items: flex-start; 
+  min-height: calc(100vh - 76px); 
+}
 .sc-sidebar {
   position: sticky;
   top: 0;
@@ -437,33 +441,104 @@ thead.sc-thead th { color: var(--sc-gray); text-transform: uppercase; font-size:
   width: 260px; flex-shrink: 0; background: var(--sc-charcoal); border-right: 1px solid var(--sc-border);
   padding: 26px 16px;
 }
-.sc-sidebar .sc-side-title { color: var(--sc-gray-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 1.4px; margin: 18px 10px 8px; }
+.sc-sidebar .sc-side-title { 
+  color: var(--sc-gray-dim); 
+  font-size: 11px; 
+  text-transform: uppercase; 
+  letter-spacing: 1.4px; 
+  margin: 18px 10px 8px; 
+}
 
 /* Customer dashboard pages sit below the public sticky navbar (~76px), so offset the sticky sidebar to match */
-.sc-sidebar.with-navbar { top: 76px; height: calc(100vh - 76px); }
+.sc-sidebar.with-navbar { 
+  top: 76px; 
+  height: calc(100vh - 76px); 
+}
 
 .sc-sidebar a.sc-side-link {
-  display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: var(--sc-radius-sm);
-  color: var(--sc-gray); font-size: 14.5px; font-weight: 500; margin-bottom: 4px; transition: var(--sc-transition);
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  padding: 11px 14px; 
+  border-radius: var(--sc-radius-sm);
+  color: var(--sc-gray); 
+  font-size: 14.5px; 
+  font-weight: 500; 
+  margin-bottom: 4px; 
+  transition: var(--sc-transition);
 }
-.sc-sidebar a.sc-side-link:hover { background: var(--sc-charcoal-3); color: var(--sc-white); }
-.sc-sidebar a.sc-side-link.active { background: linear-gradient(135deg, rgba(212,175,106,.18), rgba(212,175,106,.05)); color: var(--sc-gold); border: 1px solid rgba(212,175,106,.3); }
-.sc-content { flex: 1; padding: 30px; max-width: 100%; overflow-x: hidden; }
+.sc-sidebar a.sc-side-link:hover { 
+  background: var(--sc-charcoal-3); 
+  color: var(--sc-white); 
+}
+.sc-sidebar a.sc-side-link.active { 
+  background: linear-gradient(135deg, rgba(212,175,106,.18), rgba(212,175,106,.05)); 
+  color: var(--sc-gold); 
+  border: 1px solid rgba(212,175,106,.3); 
+}
+.sc-content { 
+  flex: 1; 
+  padding: 30px; 
+  max-width: 100%; 
+  overflow-x: hidden; 
+}
 
 .sc-stat-card {
-  background: var(--sc-charcoal-2); border: 1px solid var(--sc-border); border-radius: var(--sc-radius); padding: 22px;
-  display: flex; align-items: center; gap: 16px; height: 100%;
+  background: var(--sc-charcoal-2); 
+  border: 1px solid var(--sc-border); 
+  border-radius: var(--sc-radius); 
+  padding: 22px;
+  display: flex; 
+  align-items: center; 
+  gap: 16px; 
+  height: 100%;
 }
-.sc-stat-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-.sc-stat-card h3 { font-size: 1.6rem; margin: 0; }
-.sc-stat-card span.label { color: var(--sc-gray); font-size: 13px; }
-.sc-stat-trend { font-size: 12px; font-weight: 600; }
-.sc-stat-trend.up { color: var(--sc-success); }
-.sc-stat-trend.down { color: var(--sc-danger); }
+.sc-stat-icon { 
+  width: 52px; 
+  height: 52px; 
+  border-radius: 14px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 22px; 
+  flex-shrink: 0; 
+}
+.sc-stat-card h3 { 
+  font-size: 1.6rem; 
+  margin: 0; 
+}
+.sc-stat-card span.label { 
+  color: var(--sc-gray); 
+  font-size: 13px; 
+}
+.sc-stat-trend { 
+  font-size: 12px; 
+  font-weight: 600; 
+}
+.sc-stat-trend.up { 
+  color: var(--sc-success); 
+}
+.sc-stat-trend.down { 
+  color: var(--sc-danger); 
+}
 
 /* ============ ORDER TRACKING TIMELINE ============ */
-.sc-timeline { display: flex; justify-content: space-between; position: relative; margin: 40px 0; }
-.sc-timeline::before { content: ''; position: absolute; top: 18px; left: 5%; right: 5%; height: 2px; background: var(--sc-border); z-index: 0; }
+.sc-timeline { 
+  display: flex; 
+  justify-content: space-between; 
+  position: relative; 
+  margin: 40px 0; 
+}
+.sc-timeline::before { 
+  content: ''; 
+  position: absolute; 
+  top: 18px; 
+  left: 5%; 
+  right: 5%; 
+  height: 2px; 
+  background: var(--sc-border); 
+  z-index: 0; 
+}
 .sc-timeline .step { 
   position: relative; 
   z-index: 1; 
