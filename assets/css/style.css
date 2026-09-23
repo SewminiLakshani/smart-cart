@@ -370,6 +370,9 @@ a:hover { color: var(--sc-gold-soft); }
   padding: 10px 14px;
 }
 .form-control:focus, .form-select:focus { background: var(--sc-charcoal-3); color: var(--sc-white); border-color: var(--sc-gold); box-shadow: 0 0 0 3px rgba(212,175,106,.15); }
+.form-control:disabled, .form-control[readonly], .form-select:disabled {
+  background: var(--sc-charcoal-3); color: var(--sc-gray); opacity: 1; border-color: var(--sc-border);
+}
 .form-control::placeholder { color: var(--sc-gray-dim); }
 label { color: var(--sc-gray); font-size: 13.5px; margin-bottom: 6px; font-weight: 500; }
 .form-check-input { background-color: var(--sc-charcoal-3); border-color: var(--sc-border); }
