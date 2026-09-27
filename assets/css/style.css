@@ -461,37 +461,110 @@ a:hover {
   height: 100%;
   display: flex; flex-direction: column;
 }
-.sc-product-card:hover { transform: translateY(-6px); border-color: rgba(212,175,106,.4); box-shadow: 0 18px 40px rgba(0,0,0,.45); }
-.sc-product-media { position: relative; aspect-ratio: 1/1; overflow: hidden; background: var(--sc-charcoal-3); }
-.sc-product-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-.sc-product-card:hover .sc-product-media img { transform: scale(1.08); }
+.sc-product-card:hover { 
+  transform: translateY(-6px); 
+  border-color: rgba(212,175,106,.4); 
+  box-shadow: 0 18px 40px rgba(0,0,0,.45); 
+}
+.sc-product-media { 
+  position: relative; 
+  aspect-ratio: 1/1; 
+  overflow: hidden; 
+  background: var(--sc-charcoal-3); 
+}
+.sc-product-media img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  transition: transform .5s ease; 
+}
+.sc-product-card:hover .sc-product-media img { 
+  transform: scale(1.08); 
+}
 .sc-badge-discount {
-  position: absolute; top: 12px; left: 12px; background: var(--sc-gold); color: #14140f;
-  font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 20px; z-index: 2;
+  position: absolute; 
+  top: 12px; 
+  left: 12px; 
+  background: var(--sc-gold); 
+  color: #14140f;
+  font-size: 11.5px; 
+  font-weight: 700; 
+  padding: 4px 10px; 
+  border-radius: 20px; z-index: 2;
 }
 .sc-badge-stock {
-  position: absolute; top: 12px; right: 12px; z-index: 2; font-size: 10.5px;
+  position: absolute; 
+  top: 12px; 
+  right: 12px; 
+  z-index: 2; 
+  font-size: 10.5px;
 }
 .sc-wishlist-btn {
-  position: absolute; bottom: 12px; right: 12px; z-index: 2;
-  width: 36px; height: 36px; border-radius: 50%; border: none;
-  background: rgba(11,11,13,.75); color: #fff; display: flex; align-items: center; justify-content: center;
-  opacity: 0; transform: translateY(6px); transition: var(--sc-transition);
+  position: absolute; 
+  bottom: 12px; 
+  right: 12px; 
+  z-index: 2;
+  width: 36px; 
+  height: 36px; 
+  border-radius: 50%; 
+  border: none;
+  background: rgba(11,11,13,.75); 
+  color: #fff; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  opacity: 0; 
+  transform: translateY(6px); 
+  transition: var(--sc-transition);
 }
-.sc-product-card:hover .sc-wishlist-btn { opacity: 1; transform: translateY(0); }
-.sc-wishlist-btn.active, .sc-wishlist-btn:hover { background: var(--sc-gold); color: #14140f; }
+.sc-product-card:hover .sc-wishlist-btn { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
+.sc-wishlist-btn.active, .sc-wishlist-btn:hover { 
+  background: var(--sc-gold); 
+  color: #14140f; 
+}
 .sc-quickview-btn {
-  position: absolute; left: 50%; bottom: 14px; transform: translate(-50%, 14px);
-  opacity: 0; z-index: 2; white-space: nowrap; transition: var(--sc-transition);
-  font-size: 12px; padding: 8px 18px;
+  position: absolute; 
+  left: 50%; 
+  bottom: 14px; 
+  transform: translate(-50%, 14px);
+  opacity: 0; 
+  z-index: 2; 
+  white-space: nowrap; 
+  transition: var(--sc-transition);
+  font-size: 12px; 
+  padding: 8px 18px;
 }
-.sc-product-card:hover .sc-quickview-btn { opacity: 1; transform: translate(-50%, 0); }
+.sc-product-card:hover .sc-quickview-btn { 
+  opacity: 1; 
+  transform: translate(-50%, 0); 
+}
 
-.sc-product-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-.sc-product-brand { color: var(--sc-gray-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.sc-product-body { 
+  padding: 16px 18px 18px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px; 
+  flex: 1; 
+}
+.sc-product-brand { 
+  color: var(--sc-gray-dim); 
+  font-size: 11px; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+}
 .sc-product-name {
-  font-family: var(--sc-font-body); font-weight: 600; font-size: 15px; color: var(--sc-white);
-  overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+  font-family: var(--sc-font-body); 
+  font-weight: 600; 
+  font-size: 15px; 
+  color: var(--sc-white);
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  display: -webkit-box; 
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical;
 }
 .sc-product-rating { color: var(--sc-gold); font-size: 12.5px; }
 .sc-product-rating span { color: var(--sc-gray-dim); margin-left: 4px; }
