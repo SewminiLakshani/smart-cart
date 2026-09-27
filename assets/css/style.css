@@ -779,19 +779,40 @@ a:hover {
 
 /* ============ GENERIC CARDS / FORMS / TABLES ============ */
 .sc-card {
-  background: var(--sc-charcoal-2); border: 1px solid var(--sc-border); border-radius: var(--sc-radius); padding: 24px;
+  background: var(--sc-charcoal-2); 
+  border: 1px solid var(--sc-border); 
+  border-radius: var(--sc-radius); 
+  padding: 24px;
 }
-.sc-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.sc-card-header { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  margin-bottom: 18px; 
+}
 
 .form-control, .form-select {
-  background: var(--sc-charcoal-3); border: 1px solid var(--sc-border); color: var(--sc-white); border-radius: var(--sc-radius-sm);
+  background: var(--sc-charcoal-3); 
+  border: 1px solid var(--sc-border); 
+  color: var(--sc-white); 
+  border-radius: var(--sc-radius-sm);
   padding: 10px 14px;
 }
-.form-control:focus, .form-select:focus { background: var(--sc-charcoal-3); color: var(--sc-white); border-color: var(--sc-gold); box-shadow: 0 0 0 3px rgba(212,175,106,.15); }
-.form-control:disabled, .form-control[readonly], .form-select:disabled {
-  background: var(--sc-charcoal-3); color: var(--sc-gray); opacity: 1; border-color: var(--sc-border);
+.form-control:focus, .form-select:focus { 
+  background: var(--sc-charcoal-3); 
+  color: var(--sc-white); 
+  border-color: var(--sc-gold); 
+  box-shadow: 0 0 0 3px rgba(212,175,106,.15); 
 }
-.form-control::placeholder { color: var(--sc-gray-dim); }
+.form-control:disabled, .form-control[readonly], .form-select:disabled {
+  background: var(--sc-charcoal-3); 
+  color: var(--sc-gray); 
+  opacity: 1; 
+  border-color: var(--sc-border);
+}
+.form-control::placeholder { 
+  color: var(--sc-gray-dim); 
+}
 label { color: var(--sc-gray); font-size: 13.5px; margin-bottom: 6px; font-weight: 500; }
 .form-check-input { background-color: var(--sc-charcoal-3); border-color: var(--sc-border); }
 .form-check-input:checked { background-color: var(--sc-gold); border-color: var(--sc-gold); }
@@ -836,13 +857,29 @@ thead.sc-thead th { color: var(--sc-gray); text-transform: uppercase; font-size:
   box-shadow: 0 16px 40px rgba(0,0,0,.35);
   font-weight: 500;
 }
-.sc-flash-toast .alert-success { border-left-color: var(--sc-success); color: var(--sc-success); }
-.sc-flash-toast .alert-danger { border-left-color: var(--sc-danger); color: var(--sc-danger); }
-.sc-flash-toast .alert-warning { border-left-color: var(--sc-warning); color: var(--sc-warning); }
-.sc-flash-toast .alert-info { border-left-color: var(--sc-info); color: var(--sc-info); }
+.sc-flash-toast .alert-success { 
+  border-left-color: var(--sc-success); 
+  color: var(--sc-success); 
+}
+.sc-flash-toast .alert-danger { 
+  border-left-color: var(--sc-danger); 
+  color: var(--sc-danger); 
+}
+.sc-flash-toast .alert-warning { 
+  border-left-color: var(--sc-warning); 
+  color: var(--sc-warning); 
+}
+.sc-flash-toast .alert-info { 
+  border-left-color: var(--sc-info); 
+  color: var(--sc-info); 
+}
 
-.progress { background: var(--sc-charcoal-3); }
-.progress-bar { background: var(--sc-gold); }
+.progress { 
+  background: var(--sc-charcoal-3); 
+}
+.progress-bar { 
+  background: var(--sc-gold); 
+}
 
 /* ============ DASHBOARD LAYOUT (customer/admin/staff) ============ */
 .sc-dash-wrap { 
