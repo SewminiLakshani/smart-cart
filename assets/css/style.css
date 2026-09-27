@@ -566,12 +566,35 @@ a:hover {
   -webkit-line-clamp: 1; 
   -webkit-box-orient: vertical;
 }
-.sc-product-rating { color: var(--sc-gold); font-size: 12.5px; }
-.sc-product-rating span { color: var(--sc-gray-dim); margin-left: 4px; }
-.sc-product-price { margin-top: auto; display: flex; align-items: baseline; gap: 8px; }
-.sc-price-now { font-family: var(--sc-font-heading); color: var(--sc-gold); font-size: 1.2rem; font-weight: 700; }
-.sc-price-old { color: var(--sc-gray-dim); text-decoration: line-through; font-size: 13px; }
-.sc-add-cart-btn { margin-top: 10px; width: 100%; }
+.sc-product-rating { 
+  color: var(--sc-gold); 
+  font-size: 12.5px; 
+}
+.sc-product-rating span { 
+  color: var(--sc-gray-dim); 
+  margin-left: 4px; 
+}
+.sc-product-price { 
+  margin-top: auto; 
+  display: flex; 
+  align-items: baseline; 
+  gap: 8px; 
+}
+.sc-price-now { 
+  font-family: var(--sc-font-heading); 
+  color: var(--sc-gold); 
+  font-size: 1.2rem; 
+  font-weight: 700; 
+}
+.sc-price-old { 
+  color: var(--sc-gray-dim); 
+  text-decoration: line-through; 
+  font-size: 13px; 
+}
+.sc-add-cart-btn { 
+  margin-top: 10px; 
+  width: 100%; 
+}
 
 /* ============ FLASH SALE ============ */
 .sc-flash-section { background: linear-gradient(135deg, #171310 0%, var(--sc-black) 60%); border-top: 1px solid var(--sc-border); border-bottom: 1px solid var(--sc-border); }
