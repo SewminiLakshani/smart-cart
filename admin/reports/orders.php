@@ -23,9 +23,24 @@ require __DIR__ . '/../../includes/header.php';
     <?php require __DIR__ . '/tabs.php'; ?>
 
     <div class="row g-3 mb-4">
-      <div class="col-md-4"><div class="sc-stat-card"><div class="sc-stat-icon" style="background:rgba(224,102,95,.15);color:var(--sc-danger)"><i class="bi bi-x-circle"></i></div><div><h3><?= $cancelPct ?>%</h3><span class="label">Cancellation Rate</span></div></div></div>
-      <div class="col-md-4"><div class="sc-stat-card"><div class="sc-stat-icon" style="background:rgba(76,175,128,.15);color:var(--sc-success)"><i class="bi bi-clock-history"></i></div><div><h3><?= $avgFulfillment ? round($avgFulfillment) . 'h' : '-' ?></h3><span class="label">Avg. Fulfillment Time</span></div></div></div>
-      <div class="col-md-4"><div class="sc-stat-card"><div class="sc-stat-icon" style="background:rgba(111,168,220,.15);color:var(--sc-info)"><i class="bi bi-bag-check"></i></div><div><h3><?= (int)$cancelRate['total'] ?></h3><span class="label">Total Orders</span></div></div></div>
+      <div class="col-md-4">
+        <div class="sc-stat-card">
+          <div class="sc-stat-icon" style="background:rgba(224,102,95,.15);color:var(--sc-danger)"><i class="bi bi-x-circle"></i></div>
+          <div><h3><?= $cancelPct ?>%</h3><span class="label">Cancellation Rate</span></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="sc-stat-card">
+          <div class="sc-stat-icon" style="background:rgba(76,175,128,.15);color:var(--sc-success)"><i class="bi bi-clock-history"></i></div>
+          <div><h3><?= $avgFulfillment ? round($avgFulfillment) . 'h' : '-' ?></h3><span class="label">Avg. Fulfillment Time</span></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="sc-stat-card">
+          <div class="sc-stat-icon" style="background:rgba(111,168,220,.15);color:var(--sc-info)"><i class="bi bi-bag-check"></i></div>
+          <div><h3><?= (int)$cancelRate['total'] ?></h3><span class="label">Total Orders</span></div>
+        </div>
+      </div>
     </div>
 
     <div class="row g-4">

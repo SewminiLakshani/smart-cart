@@ -3,7 +3,9 @@ $adminNotifCount = unread_notification_count($user['user_id'], 'admin');
 ?>
 <div class="d-flex align-items-center justify-content-between mb-4 pb-3" style="border-bottom:1px solid var(--sc-border)">
   <div class="d-flex align-items-center gap-3">
-    <button class="btn btn-sc-dark d-lg-none js-sidebar-toggle"><i class="bi bi-list"></i></button>
+    <button class="btn btn-sc-dark d-lg-none js-sidebar-toggle">
+      <i class="bi bi-list"></i>
+    </button>
     <div>
       <h4 class="mb-0"><?= isset($pageTitle) ? e($pageTitle) : 'Dashboard' ?></h4>
       <small class="text-secondary">Welcome back, <?= e($user['full_name']) ?></small>
@@ -20,7 +22,7 @@ $adminNotifCount = unread_notification_count($user['user_id'], 'admin');
         $stmt->execute();
         $notes = $stmt->fetchAll();
         if (!$notes): ?>
-          <p class="text-secondary small p-2 mb-0">No notifications yet.</p>
+        <p class="text-secondary small p-2 mb-0">No notifications yet.</p>
         <?php else: foreach ($notes as $n): ?>
           <a href="<?= $n['link'] ? BASE_URL . ltrim($n['link'], '/') : '#' ?>" class="dropdown-item small py-2">
             <strong class="d-block text-gold"><?= e($n['title']) ?></strong>

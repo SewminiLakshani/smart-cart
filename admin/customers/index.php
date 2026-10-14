@@ -26,10 +26,21 @@ require __DIR__ . '/../../includes/header.php';
   <?php require __DIR__ . '/../includes/sidebar.php'; ?>
   <main class="sc-content">
     <?php require __DIR__ . '/../includes/topbar.php'; ?>
-    <form method="get" class="mb-3"><input type="text" name="q" class="form-control form-control-sm" style="width:260px" placeholder="Search by name or email" value="<?= e($q) ?>"></form>
+    <form method="get" class="mb-3">
+      <input type="text" name="q" class="form-control form-control-sm" style="width:260px" placeholder="Search by name or email" value="<?= e($q) ?>"></form>
     <div class="sc-table-wrap">
       <table class="table align-middle mb-0">
-        <thead class="sc-thead"><tr><th>Customer</th><th>Email</th><th>Phone</th><th>Orders</th><th>Total Spent</th><th>Status</th><th></th></tr></thead>
+        <thead class="sc-thead">
+          <tr>
+            <th>Customer</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Orders</th>
+            <th>Total Spent</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
         <tbody>
           <?php foreach ($customers as $c): ?>
             <tr>
@@ -38,7 +49,9 @@ require __DIR__ . '/../../includes/header.php';
               <td class="small"><?= e($c['phone']) ?></td>
               <td><?= (int)$c['order_count'] ?></td>
               <td><?= money($c['total_spent']) ?></td>
-              <td><span class="badge sc-badge bg-<?= $c['status'] === 'active' ? 'success' : 'danger' ?>"><?= ucfirst($c['status']) ?></span></td>
+              <td>
+                <span class="badge sc-badge bg-<?= $c['status'] === 'active' ? 'success' : 'danger' ?>"><?= ucfirst($c['status']) ?></span>
+              </td>
               <td class="d-flex gap-2">
                 <a href="<?= BASE_URL ?>admin/customers/details.php?id=<?= $c['user_id'] ?>" class="text-gold small">View</a>
                 <a href="?toggle=<?= $c['user_id'] ?>" class="text-secondary small js-confirm" data-confirm="<?= $c['status'] === 'active' ? 'Ban' : 'Reactivate' ?> this customer?"><?= $c['status'] === 'active' ? 'Ban' : 'Unban' ?></a>

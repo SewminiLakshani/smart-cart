@@ -21,8 +21,8 @@ $bestSellers = $pdo->query("SELECT $productCols $productJoins WHERE p.status='ac
 $flashSale = $pdo->query("SELECT $productCols $productJoins WHERE p.status='active' AND p.is_flash_sale=1 AND p.flash_sale_end >= NOW() ORDER BY p.flash_sale_end ASC LIMIT 4")->fetchAll();
 $categories = $pdo->query("SELECT * FROM categories WHERE status='active' ORDER BY category_name")->fetchAll();
 $reviews = $pdo->query("SELECT r.*, u.full_name, p.product_name FROM reviews r
-                         JOIN users u ON u.user_id = r.user_id JOIN products p ON p.product_id = r.product_id
-                         WHERE r.status='approved' ORDER BY r.created_at DESC LIMIT 6")->fetchAll();
+                        JOIN users u ON u.user_id = r.user_id JOIN products p ON p.product_id = r.product_id
+                       WHERE r.status='approved' ORDER BY r.created_at DESC LIMIT 6")->fetchAll();
 
 $recommended = [];
 $recentlyViewed = [];

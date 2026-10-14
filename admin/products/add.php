@@ -87,16 +87,22 @@ require __DIR__ . '/../../includes/header.php';
     <form method="post" enctype="multipart/form-data" class="sc-card needs-validation" novalidate>
       <?= csrf_field() ?>
       <div class="row g-3">
-        <div class="col-md-8"><label>Product Name</label><input type="text" name="product_name" class="form-control" required value="<?= e($_POST['product_name'] ?? '') ?>"></div>
-        <div class="col-md-4"><label>SKU</label><input type="text" name="sku" class="form-control" value="<?= e($_POST['sku'] ?? '') ?>"></div>
+        <div class="col-md-8">
+          <label>Product Name</label><input type="text" name="product_name" class="form-control" required value="<?= e($_POST['product_name'] ?? '') ?>">
+        </div>
+        <div class="col-md-4">
+          <label>SKU</label><input type="text" name="sku" class="form-control" value="<?= e($_POST['sku'] ?? '') ?>">
+        </div>
 
-        <div class="col-md-4"><label>Category</label>
+        <div class="col-md-4">
+          <label>Category</label>
           <select name="category_id" class="form-select" required>
             <option value="">Select category</option>
             <?php foreach ($categories as $c): ?><option value="<?= $c['category_id'] ?>"><?= e($c['category_name']) ?></option><?php endforeach; ?>
           </select>
         </div>
-        <div class="col-md-4"><label>Brand</label>
+        <div class="col-md-4">
+          <label>Brand</label>
           <select name="brand_id" class="form-select">
             <option value="">No brand</option>
             <?php foreach ($brands as $b): ?><option value="<?= $b['brand_id'] ?>"><?= e($b['brand_name']) ?></option><?php endforeach; ?>
@@ -106,18 +112,34 @@ require __DIR__ . '/../../includes/header.php';
           <select name="status" class="form-select"><option value="active">Active</option><option value="inactive">Inactive</option></select>
         </div>
 
-        <div class="col-12"><label>Description</label><textarea name="description" rows="3" class="form-control"><?= e($_POST['description'] ?? '') ?></textarea></div>
-        <div class="col-12"><label>Specifications <span class="text-secondary">(separate with | )</span></label><textarea name="specifications" rows="2" class="form-control" placeholder="e.g. Bluetooth 5.3 | 40h battery | ANC"><?= e($_POST['specifications'] ?? '') ?></textarea></div>
+        <div class="col-12">
+          <label>Description</label><textarea name="description" rows="3" class="form-control"><?= e($_POST['description'] ?? '') ?></textarea>
+        </div>
+        <div class="col-12">
+          <label>Specifications <span class="text-secondary">(separate with | )</span></label><textarea name="specifications" rows="2" class="form-control" placeholder="e.g. Bluetooth 5.3 | 40h battery | ANC"><?= e($_POST['specifications'] ?? '') ?></textarea>
+        </div>
 
-        <div class="col-md-4"><label>Price (Rs.)</label><input type="number" step="0.01" name="price" class="form-control" required></div>
-        <div class="col-md-4"><label>Discount Price (Rs.)</label><input type="number" step="0.01" name="discount_price" class="form-control"></div>
-        <div class="col-md-4"><label>Initial Stock Quantity</label><input type="number" name="stock" class="form-control" value="0" min="0"></div>
+        <div class="col-md-4">
+          <label>Price (Rs.)</label><input type="number" step="0.01" name="price" class="form-control" required>
+        </div>
+        <div class="col-md-4">
+          <label>Discount Price (Rs.)</label><input type="number" step="0.01" name="discount_price" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label>Initial Stock Quantity</label><input type="number" name="stock" class="form-control" value="0" min="0">
+        </div>
 
-        <div class="col-12"><label>Product Images (multiple allowed)</label><input type="file" name="images[]" class="form-control" multiple accept="image/jpeg,image/png,image/webp"></div>
+        <div class="col-12">
+          <label>Product Images (multiple allowed)</label><input type="file" name="images[]" class="form-control" multiple accept="image/jpeg,image/png,image/webp">
+        </div>
 
-        <div class="col-12 form-check"><input type="checkbox" name="is_featured" id="isFeatured" class="form-check-input"><label class="form-check-label" for="isFeatured">Mark as Featured Product</label></div>
+        <div class="col-12 form-check">
+          <input type="checkbox" name="is_featured" id="isFeatured" class="form-check-input"><label class="form-check-label" for="isFeatured">Mark as Featured Product</label>
+        </div>
 
-        <div class="col-12"><button type="submit" class="btn btn-sc-gold">Save Product</button> <a href="<?= BASE_URL ?>admin/products/index.php" class="btn btn-sc-outline">Cancel</a></div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-sc-gold">Save Product</button> <a href="<?= BASE_URL ?>admin/products/index.php" class="btn btn-sc-outline">Cancel</a>
+        </div>
       </div>
     </form>
   </main>

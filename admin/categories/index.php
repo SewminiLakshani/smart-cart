@@ -17,10 +17,19 @@ require __DIR__ . '/../../includes/header.php';
   <?php require __DIR__ . '/../includes/sidebar.php'; ?>
   <main class="sc-content">
     <?php require __DIR__ . '/../includes/topbar.php'; ?>
-    <div class="d-flex justify-content-end mb-3"><a href="<?= BASE_URL ?>admin/categories/add.php" class="btn btn-sc-gold btn-sm">+ Add Category</a></div>
+    <div class="d-flex justify-content-end mb-3">
+      <a href="<?= BASE_URL ?>admin/categories/add.php" class="btn btn-sc-gold btn-sm">+ Add Category</a>
+    </div>
     <div class="sc-table-wrap">
       <table class="table align-middle mb-0">
-        <thead class="sc-thead"><tr><th>Category</th><th>Slug</th><th>Products</th><th>Status</th><th></th></tr></thead>
+        <thead class="sc-thead">
+          <tr>
+            <th>Category</th>
+            <th>Slug</th>
+            <th>Products</th><th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
         <tbody>
           <?php foreach ($categories as $c): ?>
             <tr>

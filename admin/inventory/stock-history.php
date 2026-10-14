@@ -23,7 +23,18 @@ require __DIR__ . '/../../includes/header.php';
     <?php require __DIR__ . '/../includes/topbar.php'; ?>
     <div class="sc-table-wrap">
       <table class="table align-middle mb-0">
-        <thead class="sc-thead"><tr><th>Date</th><th>Product</th><th>Type</th><th>Change</th><th>Previous</th><th>New</th><th>By</th><th>Note</th></tr></thead>
+        <thead class="sc-thead">
+          <tr>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Type</th>
+            <th>Change</th>
+            <th>Previous</th>
+            <th>New</th>
+            <th>By</th>
+            <th>Note</th>
+          </tr>
+        </thead>
         <tbody>
           <?php foreach ($rows as $r): ?>
             <tr>

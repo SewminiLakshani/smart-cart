@@ -44,18 +44,27 @@ require __DIR__ . '/../../includes/header.php';
 
     <div class="sc-table-wrap">
       <table class="table align-middle mb-0">
-        <thead class="sc-thead"><tr><th>Order #</th><th>Customer</th><th>Date</th><th>Total</th><th>Payment</th><th>Status</th><th></th></tr></thead>
-        <tbody>
-          <?php foreach ($orders as $o): ?>
-            <tr>
-              <td><?= e($o['order_number']) ?></td>
-              <td class="small"><?= e($o['full_name']) ?><br><span class="text-secondary" style="font-size:11px"><?= e($o['email']) ?></span></td>
-              <td class="small text-secondary"><?= friendly_date($o['created_at'], 'M d, Y') ?></td>
-              <td><?= money($o['total_amount']) ?></td>
-              <td class="text-uppercase small"><?= $o['payment_method'] ?></td>
-              <td><?= order_status_badge($o['order_status']) ?></td>
-              <td><a href="<?= BASE_URL ?>admin/orders/details.php?id=<?= $o['order_id'] ?>" class="text-gold small">Manage</a></td>
-            </tr>
+        <thead class="sc-thead">
+          <tr><th>Order #</th>
+          <th>Customer</th>
+          <th>Date</th>
+          <th>Total</th>
+          <th>Payment</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($orders as $o): ?>
+          <tr>
+            <td><?= e($o['order_number']) ?></td>
+            <td class="small"><?= e($o['full_name']) ?><br><span class="text-secondary" style="font-size:11px"><?= e($o['email']) ?></span></td>
+            <td class="small text-secondary"><?= friendly_date($o['created_at'], 'M d, Y') ?></td>
+            <td><?= money($o['total_amount']) ?></td>
+            <td class="text-uppercase small"><?= $o['payment_method'] ?></td>
+            <td><?= order_status_badge($o['order_status']) ?></td>
+            <td><a href="<?= BASE_URL ?>admin/orders/details.php?id=<?= $o['order_id'] ?>" class="text-gold small">Manage</a></td>
+          </tr>
           <?php endforeach; ?>
           <?php if (empty($orders)): ?><tr><td colspan="7" class="text-center text-secondary py-4">No orders found.</td></tr><?php endif; ?>
         </tbody>

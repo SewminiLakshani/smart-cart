@@ -79,7 +79,10 @@ require __DIR__ . '/../../includes/header.php';
     <?php require __DIR__ . '/../includes/topbar.php'; ?>
 
     <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
-      <div><h4 class="mb-0"><?= e($order['order_number']) ?></h4><p class="text-secondary small mb-0">Placed <?= friendly_date($order['created_at']) ?></p></div>
+      <div>
+        <h4 class="mb-0"><?= e($order['order_number']) ?></h4>
+        <p class="text-secondary small mb-0">Placed <?= friendly_date($order['created_at']) ?></p>
+      </div>
       <?= order_status_badge($order['order_status']) ?>
     </div>
 
@@ -87,10 +90,22 @@ require __DIR__ . '/../../includes/header.php';
       <div class="col-lg-8">
         <div class="sc-table-wrap mb-4">
           <table class="table align-middle mb-0">
-            <thead class="sc-thead"><tr><th>Product</th><th>Price</th><th>Qty</th><th>Subtotal</th></tr></thead>
+            <thead class="sc-thead">
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
             <tbody>
               <?php foreach ($items as $it): ?>
-                <tr><td><?= e($it['product_name']) ?><?php if (!empty($it['selected_color'])): ?><div class="text-secondary small">Color: <?= e($it['selected_color']) ?></div><?php endif; ?></td><td><?= money($it['unit_price']) ?></td><td><?= $it['quantity'] ?></td><td><?= money($it['line_total']) ?></td></tr>
+                <tr>
+                  <td><?= e($it['product_name']) ?><?php if (!empty($it['selected_color'])): ?><div class="text-secondary small">Color: <?= e($it['selected_color']) ?></div><?php endif; ?></td>
+                  <td><?= money($it['unit_price']) ?></td>
+                  <td><?= $it['quantity'] ?></td>
+                  <td><?= money($it['line_total']) ?></td>
+                </tr>
               <?php endforeach; ?>
             </tbody>
           </table>
@@ -120,7 +135,10 @@ require __DIR__ . '/../../includes/header.php';
             <?php foreach ($history as $h): ?>
               <li class="mb-2 d-flex gap-3">
                 <i class="bi bi-circle-fill text-gold" style="font-size:7px;margin-top:6px"></i>
-                <div><span class="small fw-semibold"><?= ucfirst($h['status']) ?></span> <span class="text-secondary small">— <?= e($h['note']) ?> (<?= e($h['full_name'] ?? 'System') ?>, <?= friendly_date($h['created_at']) ?>)</span></div>
+                <div>
+                  <span class="small fw-semibold"><?= ucfirst($h['status']) ?></span> 
+                  <span class="text-secondary small">— <?= e($h['note']) ?> (<?= e($h['full_name'] ?? 'System') ?>, <?= friendly_date($h['created_at']) ?>)</span>
+                </div>
               </li>
             <?php endforeach; ?>
           </ul>
@@ -130,11 +148,23 @@ require __DIR__ . '/../../includes/header.php';
       <div class="col-lg-4">
         <div class="sc-card mb-4">
           <h6 class="text-gold mb-3">Order Summary</h6>
-          <div class="d-flex justify-content-between small mb-2"><span class="text-secondary">Subtotal</span><span><?= money($order['subtotal']) ?></span></div>
-          <?php if ($order['discount_amount'] > 0): ?><div class="d-flex justify-content-between small mb-2 text-success"><span>Discount</span><span>-<?= money($order['discount_amount']) ?></span></div><?php endif; ?>
-          <div class="d-flex justify-content-between small mb-2"><span class="text-secondary">Delivery</span><span><?= $order['delivery_fee'] > 0 ? money($order['delivery_fee']) : 'FREE' ?></span></div>
+          <div class="d-flex justify-content-between small mb-2">
+            <span class="text-secondary">Subtotal</span>
+            <span><?= money($order['subtotal']) ?></span>
+          </div>
+          <?php if ($order['discount_amount'] > 0): ?><div class="d-flex justify-content-between small mb-2 text-success">
+            <span>Discount</span>
+            <span>-<?= money($order['discount_amount']) ?></span>
+          </div><?php endif; ?>
+          <div class="d-flex justify-content-between small mb-2">
+            <span class="text-secondary">Delivery</span>
+            <span><?= $order['delivery_fee'] > 0 ? money($order['delivery_fee']) : 'FREE' ?></span>
+          </div>
           <div class="sc-divider"></div>
-          <div class="d-flex justify-content-between fs-5"><span>Total</span><strong class="text-gold"><?= money($order['total_amount']) ?></strong></div>
+          <div class="d-flex justify-content-between fs-5">
+            <span>Total</span>
+            <strong class="text-gold"><?= money($order['total_amount']) ?></strong>
+          </div>
           <?php if ($payment): ?><p class="small text-secondary mt-3 mb-0">Payment: <?= strtoupper($order['payment_method']) ?> — <span class="badge sc-badge bg-<?= $payment['payment_status']==='paid'?'success':'secondary' ?>"><?= ucfirst($payment['payment_status']) ?></span></p><?php endif; ?>
         </div>
 

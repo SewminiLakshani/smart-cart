@@ -138,32 +138,52 @@ require __DIR__ . '/../../includes/header.php';
         <form method="post" enctype="multipart/form-data" class="sc-card">
           <?= csrf_field() ?>
           <div class="row g-3">
-            <div class="col-md-8"><label>Product Name</label><input type="text" name="product_name" class="form-control" required value="<?= e($product['product_name']) ?>"></div>
-            <div class="col-md-4"><label>SKU</label><input type="text" name="sku" class="form-control" value="<?= e($product['sku']) ?>"></div>
+            <div class="col-md-8">
+              <label>Product Name</label><input type="text" name="product_name" class="form-control" required value="<?= e($product['product_name']) ?>">
+            </div>
+            <div class="col-md-4">
+              <label>SKU</label><input type="text" name="sku" class="form-control" value="<?= e($product['sku']) ?>">
+            </div>
             <div class="col-md-4"><label>Category</label>
               <select name="category_id" class="form-select" required>
                 <?php foreach ($categories as $c): ?><option value="<?= $c['category_id'] ?>" <?= $c['category_id'] == $product['category_id'] ? 'selected' : '' ?>><?= e($c['category_name']) ?></option><?php endforeach; ?>
               </select>
             </div>
-            <div class="col-md-4"><label>Brand</label>
+            <div class="col-md-4">
+              <label>Brand</label>
               <select name="brand_id" class="form-select">
                 <option value="">No brand</option>
                 <?php foreach ($brands as $b): ?><option value="<?= $b['brand_id'] ?>" <?= $b['brand_id'] == $product['brand_id'] ? 'selected' : '' ?>><?= e($b['brand_name']) ?></option><?php endforeach; ?>
               </select>
             </div>
-            <div class="col-md-4"><label>Status</label>
+            <div class="col-md-4">
+              <label>Status</label>
               <select name="status" class="form-select">
                 <option value="active" <?= $product['status'] === 'active' ? 'selected' : '' ?>>Active</option>
                 <option value="inactive" <?= $product['status'] === 'inactive' ? 'selected' : '' ?>>Inactive</option>
               </select>
             </div>
-            <div class="col-12"><label>Description</label><textarea name="description" rows="3" class="form-control"><?= e($product['description']) ?></textarea></div>
-            <div class="col-12"><label>Specifications</label><textarea name="specifications" rows="2" class="form-control"><?= e($product['specifications']) ?></textarea></div>
-            <div class="col-md-6"><label>Price (Rs.)</label><input type="number" step="0.01" name="price" class="form-control" required value="<?= e($product['price']) ?>"></div>
-            <div class="col-md-6"><label>Discount Price (Rs.)</label><input type="number" step="0.01" name="discount_price" class="form-control" value="<?= e($product['discount_price']) ?>"></div>
-            <div class="col-12"><label>Add More Images</label><input type="file" name="images[]" class="form-control" multiple accept="image/jpeg,image/png,image/webp"></div>
-            <div class="col-12 form-check"><input type="checkbox" name="is_featured" id="isFeatured" class="form-check-input" <?= $product['is_featured'] ? 'checked' : '' ?>><label class="form-check-label" for="isFeatured">Featured Product</label></div>
-            <div class="col-12"><button type="submit" name="update_product" class="btn btn-sc-gold">Update Product</button></div>
+            <div class="col-12">
+              <label>Description</label><textarea name="description" rows="3" class="form-control"><?= e($product['description']) ?></textarea>
+            </div>
+            <div class="col-12">
+              <label>Specifications</label><textarea name="specifications" rows="2" class="form-control"><?= e($product['specifications']) ?></textarea>
+            </div>
+            <div class="col-md-6">
+              <label>Price (Rs.)</label><input type="number" step="0.01" name="price" class="form-control" required value="<?= e($product['price']) ?>">
+            </div>
+            <div class="col-md-6">
+              <label>Discount Price (Rs.)</label><input type="number" step="0.01" name="discount_price" class="form-control" value="<?= e($product['discount_price']) ?>">
+            </div>
+            <div class="col-12">
+              <label>Add More Images</label><input type="file" name="images[]" class="form-control" multiple accept="image/jpeg,image/png,image/webp">
+            </div>
+            <div class="col-12 form-check">
+              <input type="checkbox" name="is_featured" id="isFeatured" class="form-check-input" <?= $product['is_featured'] ? 'checked' : '' ?>><label class="form-check-label" for="isFeatured">Featured Product</label>
+            </div>
+            <div class="col-12">
+              <button type="submit" name="update_product" class="btn btn-sc-gold">Update Product</button>
+            </div>
           </div>
         </form>
 
@@ -176,8 +196,10 @@ require __DIR__ . '/../../includes/header.php';
                 <div class="d-flex justify-content-center gap-1">
                   <form method="post"><?= csrf_field() ?><input type="hidden" name="set_main_image" value="<?= $img['image_id'] ?>">
                     <button class="btn btn-sc-dark btn-sm" title="Set main" <?= $img['is_main'] ? 'disabled' : '' ?>><i class="bi bi-star<?= $img['is_main'] ? '-fill text-gold' : '' ?>"></i></button></form>
-                  <form method="post" onsubmit="return confirm('Delete this image?')"><?= csrf_field() ?><input type="hidden" name="delete_image" value="<?= $img['image_id'] ?>">
-                    <button class="btn btn-sc-dark btn-sm text-danger"><i class="bi bi-trash"></i></button></form>
+                  <form method="post" onsubmit="return confirm('Delete this image?')">
+                    <?= csrf_field() ?><input type="hidden" name="delete_image" value="<?= $img['image_id'] ?>">
+                    <button class="btn btn-sc-dark btn-sm text-danger"><i class="bi bi-trash"></i></button>
+                  </form>
                 </div>
               </div>
             <?php endforeach; ?>
@@ -191,9 +213,18 @@ require __DIR__ . '/../../includes/header.php';
           <p class="mb-3">Current Stock: <strong class="text-gold"><?= (int)$product['quantity'] ?></strong></p>
           <form method="post">
             <?= csrf_field() ?>
-            <div class="mb-2"><select name="adjust_type" class="form-select form-select-sm"><option value="add">Add Stock</option><option value="reduce">Reduce Stock</option></select></div>
-            <div class="mb-2"><input type="number" name="adjust_amount" class="form-control form-control-sm" min="1" placeholder="Quantity" required></div>
-            <div class="mb-2"><input type="text" name="adjust_note" class="form-control form-control-sm" placeholder="Note (optional)"></div>
+            <div class="mb-2">
+              <select name="adjust_type" class="form-select form-select-sm">
+                <option value="add">Add Stock</option>
+                <option value="reduce">Reduce Stock</option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <input type="number" name="adjust_amount" class="form-control form-control-sm" min="1" placeholder="Quantity" required>
+            </div>
+            <div class="mb-2">
+              <input type="text" name="adjust_note" class="form-control form-control-sm" placeholder="Note (optional)">
+            </div>
             <button type="submit" name="adjust_stock" class="btn btn-sc-gold btn-sm w-100">Update Stock</button>
           </form>
           <a href="<?= BASE_URL ?>admin/inventory/stock-history.php?product_id=<?= $productId ?>" class="d-block text-center text-gold small mt-3">View Stock History &rarr;</a>

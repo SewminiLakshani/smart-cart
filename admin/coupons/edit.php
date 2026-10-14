@@ -40,23 +40,52 @@ require __DIR__ . '/../../includes/header.php';
     <form method="post" class="sc-card" style="max-width:640px">
       <?= csrf_field() ?>
       <div class="row g-3">
-        <div class="col-md-6"><label>Coupon Code</label><input type="text" class="form-control" value="<?= e($coupon['coupon_code']) ?>" disabled></div>
-        <div class="col-md-6"><label>Discount Type</label>
+        <div class="col-md-6">
+          <label>Coupon Code</label>
+          <input type="text" class="form-control" value="<?= e($coupon['coupon_code']) ?>" disabled>
+        </div>
+        <div class="col-md-6">
+          <label>Discount Type</label>
           <select name="discount_type" class="form-select">
             <option value="percentage" <?= $coupon['discount_type']==='percentage'?'selected':'' ?>>Percentage (%)</option>
             <option value="fixed" <?= $coupon['discount_type']==='fixed'?'selected':'' ?>>Fixed Amount (Rs.)</option>
           </select>
         </div>
-        <div class="col-md-6"><label>Discount Value</label><input type="number" step="0.01" name="discount_value" class="form-control" required value="<?= e($coupon['discount_value']) ?>"></div>
-        <div class="col-md-6"><label>Max Discount</label><input type="number" step="0.01" name="max_discount_amount" class="form-control" value="<?= e($coupon['max_discount_amount']) ?>"></div>
-        <div class="col-md-6"><label>Minimum Order Amount</label><input type="number" step="0.01" name="min_order_amount" class="form-control" value="<?= e($coupon['min_order_amount']) ?>"></div>
-        <div class="col-md-6"><label>Usage Limit</label><input type="number" name="usage_limit" class="form-control" value="<?= e($coupon['usage_limit']) ?>"></div>
-        <div class="col-md-6"><label>Start Date</label><input type="datetime-local" name="start_date" class="form-control" required value="<?= date('Y-m-d\TH:i', strtotime($coupon['start_date'])) ?>"></div>
-        <div class="col-md-6"><label>End Date</label><input type="datetime-local" name="end_date" class="form-control" required value="<?= date('Y-m-d\TH:i', strtotime($coupon['end_date'])) ?>"></div>
-        <div class="col-md-6"><label>Status</label>
-          <select name="status" class="form-select"><option value="active" <?= $coupon['status']==='active'?'selected':'' ?>>Active</option><option value="inactive" <?= $coupon['status']==='inactive'?'selected':'' ?>>Inactive</option></select>
+        <div class="col-md-6">
+          <label>Discount Value</label>
+          <input type="number" step="0.01" name="discount_value" class="form-control" required value="<?= e($coupon['discount_value']) ?>">
         </div>
-        <div class="col-12"><button type="submit" class="btn btn-sc-gold">Update Coupon</button> <a href="<?= BASE_URL ?>admin/coupons/index.php" class="btn btn-sc-outline">Cancel</a></div>
+        <div class="col-md-6">
+          <label>Max Discount</label>
+          <input type="number" step="0.01" name="max_discount_amount" class="form-control" value="<?= e($coupon['max_discount_amount']) ?>">
+        </div>
+        <div class="col-md-6">
+          <label>Minimum Order Amount</label>
+          <input type="number" step="0.01" name="min_order_amount" class="form-control" value="<?= e($coupon['min_order_amount']) ?>">
+        </div>
+        <div class="col-md-6">
+          <label>Usage Limit</label>
+          <input type="number" name="usage_limit" class="form-control" value="<?= e($coupon['usage_limit']) ?>">
+        </div>
+        <div class="col-md-6">
+          <label>Start Date</label>
+          <input type="datetime-local" name="start_date" class="form-control" required value="<?= date('Y-m-d\TH:i', strtotime($coupon['start_date'])) ?>">
+        </div>
+        <div class="col-md-6">
+          <label>End Date</label>
+          <input type="datetime-local" name="end_date" class="form-control" required value="<?= date('Y-m-d\TH:i', strtotime($coupon['end_date'])) ?>">
+        </div>
+        <div class="col-md-6">
+          <label>Status</label>
+          <select name="status" class="form-select">
+            <option value="active" <?= $coupon['status']==='active'?'selected':'' ?>>Active</option>
+            <option value="inactive" <?= $coupon['status']==='inactive'?'selected':'' ?>>Inactive</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-sc-gold">Update Coupon</button> 
+          <a href="<?= BASE_URL ?>admin/coupons/index.php" class="btn btn-sc-outline">Cancel</a>
+        </div>
       </div>
     </form>
   </main>

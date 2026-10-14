@@ -52,12 +52,38 @@ require __DIR__ . '/../../includes/header.php';
       </div>
       <div class="col-lg-8">
         <div class="row g-3 mb-4">
-          <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-icon" style="background:rgba(212,175,106,.15);color:var(--sc-gold)"><i class="bi bi-bag-check"></i></div><div><h3><?= count($orders) ?></h3><span class="label">Total Orders</span></div></div></div>
-          <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-icon" style="background:rgba(76,175,128,.15);color:var(--sc-success)"><i class="bi bi-cash-stack"></i></div><div><h3><?= money($totalSpent) ?></h3><span class="label">Total Spent</span></div></div></div>
+          <div class="col-6">
+            <div class="sc-stat-card">
+              <div class="sc-stat-icon" style="background:rgba(212,175,106,.15);color:var(--sc-gold)">
+                <i class="bi bi-bag-check"></i>
+              </div>
+              <div><h3><?= count($orders) ?></h3>
+              <span class="label">Total Orders</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="sc-stat-card">
+            <div class="sc-stat-icon" style="background:rgba(76,175,128,.15);color:var(--sc-success)">
+              <i class="bi bi-cash-stack"></i>
+            </div>
+            <div>
+              <h3><?= money($totalSpent) ?></h3>
+              <span class="label">Total Spent</span>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="sc-table-wrap">
           <table class="table align-middle mb-0">
-            <thead class="sc-thead"><tr><th>Order #</th><th>Date</th><th>Total</th><th>Status</th></tr></thead>
+            <thead class="sc-thead">
+              <tr>
+                <th>Order #</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Status</th>
+              </tr>
+            </thead>
             <tbody>
               <?php foreach ($orders as $o): ?>
                 <tr>

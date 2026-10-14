@@ -33,14 +33,16 @@ require __DIR__ . '/../../includes/header.php';
           <h6 class="text-gold mb-3">Send Broadcast Notification</h6>
           <form method="post">
             <?= csrf_field() ?>
-            <div class="mb-3"><label>Audience</label>
+            <div class="mb-3">
+              <label>Audience</label>
               <select name="audience" class="form-select">
                 <option value="customer">All Customers</option>
                 <option value="staff">All Staff</option>
                 <option value="all">Everyone</option>
               </select>
             </div>
-            <div class="mb-3"><label>Title</label><input type="text" name="title" class="form-control" required></div>
+            <div class="mb-3">
+              <label>Title</label><input type="text" name="title" class="form-control" required></div>
             <div class="mb-3"><label>Message</label><textarea name="message" class="form-control" rows="4" required></textarea></div>
             <button type="submit" class="btn btn-sc-gold w-100">Send Notification</button>
           </form>

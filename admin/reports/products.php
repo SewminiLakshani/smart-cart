@@ -6,8 +6,8 @@ $pdo = db();
 $topSelling = $pdo->query("SELECT product_name, total_sold, avg_rating, review_count FROM products ORDER BY total_sold DESC LIMIT 10")->fetchAll();
 $lowStock = $pdo->query("SELECT p.product_name, i.quantity FROM inventory i JOIN products p ON p.product_id=i.product_id WHERE i.stock_status IN ('low_stock','out_of_stock') ORDER BY i.quantity ASC LIMIT 10")->fetchAll();
 $categoryPerf = $pdo->query("SELECT c.category_name, COUNT(p.product_id) product_count, COALESCE(SUM(p.total_sold),0) total_sold
-                              FROM categories c LEFT JOIN products p ON p.category_id = c.category_id
-                              GROUP BY c.category_id ORDER BY total_sold DESC")->fetchAll();
+                            FROM categories c LEFT JOIN products p ON p.category_id = c.category_id
+                            GROUP BY c.category_id ORDER BY total_sold DESC")->fetchAll();
 
 $pageTitle = 'Product Report';
 require __DIR__ . '/../../includes/header.php';

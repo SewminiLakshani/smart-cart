@@ -1,18 +1,12 @@
--- =====================================================================
--- SMARTCART - ADVANCED E-COMMERCE MANAGEMENT SYSTEM
--- Database: smartcart_db
--- Engine: InnoDB | Charset: utf8mb4
--- =====================================================================
-
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 
 CREATE DATABASE IF NOT EXISTS smartcart_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE smartcart_db;
 
--- =====================================================================
+
 -- 1. ROLES
--- =====================================================================
+
 CREATE TABLE roles (
     role_id INT AUTO_INCREMENT PRIMARY KEY,
     role_name VARCHAR(30) NOT NULL UNIQUE
@@ -20,9 +14,9 @@ CREATE TABLE roles (
 
 INSERT INTO roles (role_id, role_name) VALUES (1,'customer'),(2,'admin'),(3,'staff');
 
--- =====================================================================
+
 -- 2. USERS
--- =====================================================================
+
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     role_id INT NOT NULL DEFAULT 1,
@@ -42,9 +36,9 @@ CREATE TABLE users (
     INDEX idx_role (role_id)
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 3. CATEGORIES
--- =====================================================================
+
 CREATE TABLE categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     category_name VARCHAR(100) NOT NULL UNIQUE,
@@ -56,9 +50,9 @@ CREATE TABLE categories (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 4. BRANDS
--- =====================================================================
+
 CREATE TABLE brands (
     brand_id INT AUTO_INCREMENT PRIMARY KEY,
     brand_name VARCHAR(100) NOT NULL UNIQUE,
@@ -69,9 +63,9 @@ CREATE TABLE brands (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 5. PRODUCTS
--- =====================================================================
+
 CREATE TABLE products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     category_id INT NOT NULL,
@@ -103,9 +97,9 @@ CREATE TABLE products (
     FULLTEXT INDEX ft_search (product_name, description)
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 6. PRODUCT IMAGES
--- =====================================================================
+
 CREATE TABLE product_images (
     image_id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
@@ -116,9 +110,9 @@ CREATE TABLE product_images (
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 6b. PRODUCT COLORS (optional color options a customer can pick per product)
--- =====================================================================
+
 CREATE TABLE product_colors (
     color_id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
@@ -128,9 +122,9 @@ CREATE TABLE product_colors (
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 7. INVENTORY
--- =====================================================================
+
 CREATE TABLE inventory (
     inventory_id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL UNIQUE,
@@ -141,9 +135,8 @@ CREATE TABLE inventory (
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- =====================================================================
 -- 8. STOCK HISTORY
--- =====================================================================
+
 CREATE TABLE stock_history (
     history_id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
@@ -158,9 +151,9 @@ CREATE TABLE stock_history (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 9. ADDRESSES
--- =====================================================================
+
 CREATE TABLE addresses (
     address_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -176,9 +169,9 @@ CREATE TABLE addresses (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 10 & 11. WISHLIST / WISHLIST_ITEMS
--- =====================================================================
+
 CREATE TABLE wishlist (
     wishlist_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL UNIQUE,
@@ -196,9 +189,9 @@ CREATE TABLE wishlist_items (
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 12 & 13. CART / CART_ITEMS
--- =====================================================================
+
 CREATE TABLE cart (
     cart_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL UNIQUE,
@@ -218,9 +211,9 @@ CREATE TABLE cart_items (
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 17 & 18. COUPONS / COUPON_USAGE  (created before orders so orders can FK)
--- =====================================================================
+
 CREATE TABLE coupons (
     coupon_id INT AUTO_INCREMENT PRIMARY KEY,
     coupon_code VARCHAR(50) NOT NULL UNIQUE,
@@ -236,9 +229,10 @@ CREATE TABLE coupons (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
+
 -- 14. ORDERS
--- =====================================================================
+
 CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     order_number VARCHAR(30) NOT NULL UNIQUE,
@@ -271,9 +265,9 @@ CREATE TABLE orders (
     INDEX idx_user (user_id)
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 15. ORDER ITEMS
--- =====================================================================
+
 CREATE TABLE order_items (
     order_item_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
@@ -287,9 +281,9 @@ CREATE TABLE order_items (
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE RESTRICT
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 16. PAYMENTS
--- =====================================================================
+
 CREATE TABLE payments (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
@@ -303,9 +297,9 @@ CREATE TABLE payments (
     FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 18. COUPON USAGE
--- =====================================================================
+
 CREATE TABLE coupon_usage (
     usage_id INT AUTO_INCREMENT PRIMARY KEY,
     coupon_id INT NOT NULL,
@@ -318,9 +312,9 @@ CREATE TABLE coupon_usage (
     FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 19. REVIEWS
--- =====================================================================
+
 CREATE TABLE reviews (
     review_id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
@@ -336,9 +330,9 @@ CREATE TABLE reviews (
     CHECK (rating BETWEEN 1 AND 5)
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 20. NOTIFICATIONS
--- =====================================================================
+
 CREATE TABLE notifications (
     notification_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT DEFAULT NULL,
@@ -353,9 +347,9 @@ CREATE TABLE notifications (
     INDEX idx_user_read (user_id, is_read)
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- 21. ORDER STATUS HISTORY
--- =====================================================================
+
 CREATE TABLE order_status_history (
     history_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
@@ -367,9 +361,9 @@ CREATE TABLE order_status_history (
     FOREIGN KEY (changed_by) REFERENCES users(user_id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
--- =====================================================================
+
 -- SUPPORTING TABLES
--- =====================================================================
+
 CREATE TABLE recently_viewed (
     view_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -398,12 +392,10 @@ CREATE TABLE contact_messages (
 
 SET FOREIGN_KEY_CHECKS=1;
 
--- =====================================================================
 -- DEMO / SAMPLE DATA
--- =====================================================================
 
 -- Passwords below are all bcrypt hashes of: Password@123
--- (verified compatible with PHP password_verify())
+
 INSERT INTO users (role_id, full_name, email, phone, password_hash, status) VALUES
 (2, 'Admin User', 'admin@smartcart.com', '0771234567', '$2b$12$kFI7w.mL8r7valnX3hacYuIxV6IStE/L8vHJU6uRwJiWQgTJj2nNK', 'active'),
 (3, 'Staff Member', 'staff@smartcart.com', '0771234568', '$2b$12$kFI7w.mL8r7valnX3hacYuIxV6IStE/L8vHJU6uRwJiWQgTJj2nNK', 'active'),

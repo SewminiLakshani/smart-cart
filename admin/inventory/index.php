@@ -41,24 +41,31 @@ require __DIR__ . '/../../includes/header.php';
 
     <div class="sc-table-wrap">
       <table class="table align-middle mb-0">
-        <thead class="sc-thead"><tr><th>Product</th><th>Current Stock</th><th>Threshold</th><th>Status</th><th>Quick Adjust</th></tr></thead>
-        <tbody>
-          <?php foreach ($rows as $r): ?>
-            <tr>
-              <td><?= e($r['product_name']) ?></td>
-              <td><strong><?= (int)$r['quantity'] ?></strong></td>
-              <td class="text-secondary small"><?= (int)$r['low_stock_threshold'] ?></td>
-              <td><?= stock_status_badge($r['stock_status']) ?></td>
-              <td>
-                <form method="post" class="d-flex gap-1">
-                  <?= csrf_field() ?>
-                  <input type="hidden" name="product_id" value="<?= $r['product_id'] ?>">
-                  <select name="adjust_type" class="form-select form-select-sm" style="width:100px"><option value="add">Add</option><option value="reduce">Reduce</option></select>
-                  <input type="number" name="adjust_amount" class="form-control form-control-sm" style="width:80px" min="1" value="1" required>
-                  <button class="btn btn-sc-gold btn-sm">Go</button>
-                </form>
-              </td>
-            </tr>
+        <thead class="sc-thead">
+          <tr><th>Product</th>
+          <th>Current Stock</th>
+          <th>Threshold</th>
+          <th>Status</th>
+          <th>Quick Adjust</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($rows as $r): ?>
+          <tr>
+            <td><?= e($r['product_name']) ?></td>
+            <td><strong><?= (int)$r['quantity'] ?></strong></td>
+            <td class="text-secondary small"><?= (int)$r['low_stock_threshold'] ?></td>
+            <td><?= stock_status_badge($r['stock_status']) ?></td>
+            <td>
+              <form method="post" class="d-flex gap-1">
+                <?= csrf_field() ?>
+                <input type="hidden" name="product_id" value="<?= $r['product_id'] ?>">
+                <select name="adjust_type" class="form-select form-select-sm" style="width:100px"><option value="add">Add</option><option value="reduce">Reduce</option></select>
+                <input type="number" name="adjust_amount" class="form-control form-control-sm" style="width:80px" min="1" value="1" required>
+                <button class="btn btn-sc-gold btn-sm">Go</button>
+              </form>
+            </td>
+          </tr>
           <?php endforeach; ?>
           <?php if (empty($rows)): ?><tr><td colspan="5" class="text-center text-secondary py-4">No matching products.</td></tr><?php endif; ?>
         </tbody>

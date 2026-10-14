@@ -25,10 +25,30 @@ require __DIR__ . '/../includes/header.php';
     <div class="mb-4"><h3>Welcome, <?= e($user['full_name']) ?></h3><p class="text-secondary">Here's your assignment overview.</p></div>
 
     <div class="row g-3 mb-4">
-      <div class="col-6 col-lg-3"><div class="sc-stat-card"><div class="sc-stat-icon" style="background:rgba(212,175,106,.15);color:var(--sc-gold)"><i class="bi bi-bag-check"></i></div><div><h3><?= $assignedCount ?></h3><span class="label">Assigned Orders</span></div></div></div>
-      <div class="col-6 col-lg-3"><div class="sc-stat-card"><div class="sc-stat-icon" style="background:rgba(224,178,95,.15);color:var(--sc-warning)"><i class="bi bi-hourglass-split"></i></div><div><h3><?= $pendingCount ?></h3><span class="label">Pending Action</span></div></div></div>
-      <div class="col-6 col-lg-3"><div class="sc-stat-card"><div class="sc-stat-icon" style="background:rgba(111,168,220,.15);color:var(--sc-info)"><i class="bi bi-truck"></i></div><div><h3><?= $shippedCount ?></h3><span class="label">Shipped</span></div></div></div>
-      <div class="col-6 col-lg-3"><div class="sc-stat-card"><div class="sc-stat-icon" style="background:rgba(76,175,128,.15);color:var(--sc-success)"><i class="bi bi-house-check"></i></div><div><h3><?= $deliveredCount ?></h3><span class="label">Delivered</span></div></div></div>
+      <div class="col-6 col-lg-3">
+        <div class="sc-stat-card">
+          <div class="sc-stat-icon" style="background:rgba(212,175,106,.15);color:var(--sc-gold)"><i class="bi bi-bag-check"></i></div>
+          <div><h3><?= $assignedCount ?></h3><span class="label">Assigned Orders</span></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="sc-stat-card">
+          <div class="sc-stat-icon" style="background:rgba(224,178,95,.15);color:var(--sc-warning)"><i class="bi bi-hourglass-split"></i></div>
+          <div><h3><?= $pendingCount ?></h3><span class="label">Pending Action</span></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="sc-stat-card">
+          <div class="sc-stat-icon" style="background:rgba(111,168,220,.15);color:var(--sc-info)"><i class="bi bi-truck"></i></div>
+          <div><h3><?= $shippedCount ?></h3><span class="label">Shipped</span></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="sc-stat-card">
+          <div class="sc-stat-icon" style="background:rgba(76,175,128,.15);color:var(--sc-success)"><i class="bi bi-house-check"></i></div>
+          <div><h3><?= $deliveredCount ?></h3><span class="label">Delivered</span></div>
+        </div>
+      </div>
     </div>
 
     <div class="row g-4">

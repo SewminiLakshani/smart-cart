@@ -1,9 +1,4 @@
--- =====================================================================
--- SMARTCART — MIGRATION: Product color options
--- Run this on your EXISTING smartcart_db database via phpMyAdmin's
--- "SQL" tab. It only ADDS things — none of your existing products,
--- orders, reviews, or accounts will be touched or deleted.
--- =====================================================================
+
 
 USE smartcart_db;
 

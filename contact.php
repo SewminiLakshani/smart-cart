@@ -55,11 +55,21 @@ require __DIR__ . '/includes/navbar.php';
             <form method="post" class="needs-validation" novalidate>
               <?= csrf_field() ?>
               <div class="row g-3">
-                <div class="col-md-6"><label>Name</label><input type="text" name="name" class="form-control" required value="<?= e($_POST['name'] ?? '') ?>"></div>
-                <div class="col-md-6"><label>Email</label><input type="email" name="email" class="form-control" required value="<?= e($_POST['email'] ?? '') ?>"></div>
-                <div class="col-12"><label>Subject</label><input type="text" name="subject" class="form-control" required value="<?= e($_POST['subject'] ?? '') ?>"></div>
-                <div class="col-12"><label>Message</label><textarea name="message" rows="5" class="form-control" required><?= e($_POST['message'] ?? '') ?></textarea></div>
-                <div class="col-12"><button type="submit" class="btn btn-sc-gold">Send Message</button></div>
+                <div class="col-md-6">
+                  <label>Name</label><input type="text" name="name" class="form-control" required value="<?= e($_POST['name'] ?? '') ?>">
+                </div>
+                <div class="col-md-6">
+                  <label>Email</label><input type="email" name="email" class="form-control" required value="<?= e($_POST['email'] ?? '') ?>">
+                </div>
+                <div class="col-12">
+                  <label>Subject</label><input type="text" name="subject" class="form-control" required value="<?= e($_POST['subject'] ?? '') ?>">
+                </div>
+                <div class="col-12">
+                  <label>Message</label><textarea name="message" rows="5" class="form-control" required><?= e($_POST['message'] ?? '') ?></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-sc-gold">Send Message</button>
+                </div>
               </div>
             </form>
           <?php endif; ?>

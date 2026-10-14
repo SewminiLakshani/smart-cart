@@ -1,9 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
 
-/* =========================================================
-   GENERAL / SECURITY HELPERS
-   ========================================================= */
 
 /** Escape output to prevent XSS */
 function e($value): string

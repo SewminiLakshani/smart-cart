@@ -43,17 +43,45 @@ require __DIR__ . '/../../includes/header.php';
     <form method="post" class="sc-card" style="max-width:640px">
       <?= csrf_field() ?>
       <div class="row g-3">
-        <div class="col-md-6"><label>Coupon Code</label><input type="text" name="coupon_code" class="form-control text-uppercase" required placeholder="e.g. SAVE20"></div>
-        <div class="col-md-6"><label>Discount Type</label>
-          <select name="discount_type" class="form-select"><option value="percentage">Percentage (%)</option><option value="fixed">Fixed Amount (Rs.)</option></select>
+        <div class="col-md-6">
+          <label>Coupon Code</label>
+          <input type="text" name="coupon_code" class="form-control text-uppercase" required placeholder="e.g. SAVE20">
         </div>
-        <div class="col-md-6"><label>Discount Value</label><input type="number" step="0.01" name="discount_value" class="form-control" required></div>
-        <div class="col-md-6"><label>Max Discount (for %) — optional</label><input type="number" step="0.01" name="max_discount_amount" class="form-control"></div>
-        <div class="col-md-6"><label>Minimum Order Amount</label><input type="number" step="0.01" name="min_order_amount" class="form-control" value="0"></div>
-        <div class="col-md-6"><label>Usage Limit — optional</label><input type="number" name="usage_limit" class="form-control"></div>
-        <div class="col-md-6"><label>Start Date</label><input type="datetime-local" name="start_date" class="form-control" required></div>
-        <div class="col-md-6"><label>End Date</label><input type="datetime-local" name="end_date" class="form-control" required></div>
-        <div class="col-12"><button type="submit" class="btn btn-sc-gold">Create Coupon</button> <a href="<?= BASE_URL ?>admin/coupons/index.php" class="btn btn-sc-outline">Cancel</a></div>
+        <div class="col-md-6">
+          <label>Discount Type</label>
+          <select name="discount_type" class="form-select">
+            <option value="percentage">Percentage (%)</option>
+            <option value="fixed">Fixed Amount (Rs.)</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label>Discount Value</label>
+          <input type="number" step="0.01" name="discount_value" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Max Discount (for %) — optional</label>
+          <input type="number" step="0.01" name="max_discount_amount" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label>Minimum Order Amount</label>
+          <input type="number" step="0.01" name="min_order_amount" class="form-control" value="0">
+        </div>
+        <div class="col-md-6">
+          <label>Usage Limit — optional</label>
+          <input type="number" name="usage_limit" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label>Start Date</label>
+          <input type="datetime-local" name="start_date" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>End Date</label>
+          <input type="datetime-local" name="end_date" class="form-control" required>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-sc-gold">Create Coupon</button> 
+          <a href="<?= BASE_URL ?>admin/coupons/index.php" class="btn btn-sc-outline">Cancel</a>
+        </div>
       </div>
     </form>
   </main>

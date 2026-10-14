@@ -57,7 +57,17 @@ require __DIR__ . '/../../includes/header.php';
 
     <div class="sc-table-wrap">
       <table class="table align-middle mb-0">
-        <thead class="sc-thead"><tr><th>Product</th><th>Category</th><th>Brand</th><th>Price</th><th>Stock</th><th>Status</th><th></th></tr></thead>
+        <thead class="sc-thead">
+          <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
         <tbody>
           <?php foreach ($products as $p): ?>
             <tr>

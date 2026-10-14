@@ -35,15 +35,25 @@ require __DIR__ . '/../../includes/header.php';
     <?php foreach ($errors as $err): ?><div class="alert alert-danger small"><?= e($err) ?></div><?php endforeach; ?>
     <form method="post" enctype="multipart/form-data" class="sc-card" style="max-width:560px">
       <?= csrf_field() ?>
-      <div class="mb-3"><label>Category Name</label><input type="text" name="category_name" class="form-control" required value="<?= e($category['category_name']) ?>"></div>
-      <div class="mb-3"><label>Description</label><textarea name="description" class="form-control" rows="3"><?= e($category['description']) ?></textarea></div>
-      <div class="mb-3"><label>Status</label>
+      <div class="mb-3">
+        <label>Category Name</label>
+        <input type="text" name="category_name" class="form-control" required value="<?= e($category['category_name']) ?>">
+      </div>
+      <div class="mb-3">
+        <label>Description</label>
+        <textarea name="description" class="form-control" rows="3"><?= e($category['description']) ?></textarea>
+      </div>
+      <div class="mb-3">
+        <label>Status</label>
         <select name="status" class="form-select">
           <option value="active" <?= $category['status']==='active'?'selected':'' ?>>Active</option>
           <option value="inactive" <?= $category['status']==='inactive'?'selected':'' ?>>Inactive</option>
         </select>
       </div>
-      <div class="mb-3"><label>Replace Image</label><input type="file" name="image" class="form-control" accept="image/jpeg,image/png,image/webp"></div>
+      <div class="mb-3">
+        <label>Replace Image</label>
+        <input type="file" name="image" class="form-control" accept="image/jpeg,image/png,image/webp">
+      </div>
       <button type="submit" class="btn btn-sc-gold">Update Category</button>
       <a href="<?= BASE_URL ?>admin/categories/index.php" class="btn btn-sc-outline">Cancel</a>
     </form>

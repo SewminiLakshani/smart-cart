@@ -16,10 +16,21 @@ require __DIR__ . '/../../includes/header.php';
   <?php require __DIR__ . '/../includes/sidebar.php'; ?>
   <main class="sc-content">
     <?php require __DIR__ . '/../includes/topbar.php'; ?>
-    <div class="d-flex justify-content-end mb-3"><a href="<?= BASE_URL ?>admin/coupons/add.php" class="btn btn-sc-gold btn-sm">+ Add Coupon</a></div>
+    <div class="d-flex justify-content-end mb-3">
+      <a href="<?= BASE_URL ?>admin/coupons/add.php" class="btn btn-sc-gold btn-sm">+ Add Coupon</a>
+    </div>
     <div class="sc-table-wrap">
       <table class="table align-middle mb-0">
-        <thead class="sc-thead"><tr><th>Code</th><th>Discount</th><th>Min Order</th><th>Usage</th><th>Valid Until</th><th>Status</th><th></th></tr></thead>
+        <thead class="sc-thead">
+          <tr>
+            <th>Code</th>
+            <th>Discount</th>
+            <th>Min Order</th>
+            <th>Usage</th>
+            <th>Valid Until</th>
+            <th>Status</th>
+            <th></th></tr>
+          </thead>
         <tbody>
           <?php foreach ($coupons as $c):
             $expired = strtotime($c['end_date']) < time(); ?>

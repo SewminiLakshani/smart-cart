@@ -5,8 +5,8 @@ $pdo = db();
 
 $newCustomers = $pdo->query("SELECT DATE(created_at) d, COUNT(*) cnt FROM users WHERE role_id=1 AND created_at >= DATE_SUB(NOW(), INTERVAL 30 DAY) GROUP BY DATE(created_at) ORDER BY d ASC")->fetchAll();
 $topCustomers = $pdo->query("SELECT u.full_name, u.email, COUNT(o.order_id) order_count, COALESCE(SUM(o.total_amount),0) total_spent
-                              FROM users u JOIN orders o ON o.user_id = u.user_id WHERE o.order_status != 'cancelled'
-                              GROUP BY u.user_id ORDER BY total_spent DESC LIMIT 10")->fetchAll();
+                            FROM users u JOIN orders o ON o.user_id = u.user_id WHERE o.order_status != 'cancelled'
+                            GROUP BY u.user_id ORDER BY total_spent DESC LIMIT 10")->fetchAll();
 $totalCustomers = (int)$pdo->query("SELECT COUNT(*) FROM users WHERE role_id=1")->fetchColumn();
 $activeCustomers = (int)$pdo->query("SELECT COUNT(DISTINCT user_id) FROM orders WHERE created_at >= DATE_SUB(NOW(), INTERVAL 30 DAY)")->fetchColumn();
 
@@ -36,10 +36,19 @@ require __DIR__ . '/../../includes/header.php';
     <div class="sc-card">
       <h6 class="text-gold mb-3">Top Customers by Spend</h6>
       <table class="table align-middle mb-0">
-        <thead class="sc-thead"><tr><th>Customer</th><th>Orders</th><th>Total Spent</th></tr></thead>
+        <thead class="sc-thead">
+          <tr>
+            <th>Customer</th>
+            <th>Orders</th>
+            <th>Total Spent</th>
+          </tr>
+        </thead>
         <tbody>
           <?php foreach ($topCustomers as $c): ?>
-            <tr><td><?= e($c['full_name']) ?><br><span class="text-secondary small"><?= e($c['email']) ?></span></td><td><?= (int)$c['order_count'] ?></td><td><?= money($c['total_spent']) ?></td></tr>
+            <tr>
+              <td><?= e($c['full_name']) ?><br><span class="text-secondary small"><?= e($c['email']) ?></span></td>
+              <td><?= (int)$c['order_count'] ?></td><td><?= money($c['total_spent']) ?></td>
+            </tr>
           <?php endforeach; ?>
         </tbody>
       </table>
